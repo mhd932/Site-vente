@@ -46,25 +46,26 @@
     .product p {
       margin: 5px 0;
     }
-    form {
+    .product button {
+      background-color: #111;
+      color: white;
+      padding: 8px 12px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    #cart {
       background: white;
       padding: 15px;
       border-radius: 10px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       margin-top: 30px;
     }
-    input, select, textarea, button {
-      width: 100%;
-      padding: 10px;
-      margin-top: 10px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
+    #cart ul {
+      padding-left: 20px;
     }
-    button {
-      background-color: #111;
-      color: white;
-      border: none;
-      cursor: pointer;
+    form, iframe {
+      margin-top: 30px;
     }
     .contact-links {
       margin-top: 30px;
@@ -80,46 +81,66 @@
   </style>
 </head>
 <body>
+
 <header>
   <h1>ism.vente</h1>
   <p>Accessoires téléphone 📲 neufs – Livraison 93 ou envoi partout 📦</p>
 </header>
-<div class="container">
-  <!-- Tes produits ici... -->
 
-  <!-- Exemple d'un produit -->
+<div class="container">
   <div class="product">
     <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MU7V2?wid=572&hei=572&fmt=jpeg&qlt=95&.v=1664570086217" alt="Adaptateur Apple">
     <div class="product-details">
       <h3>⚡ Adaptateur Apple USB-C 20W</h3>
       <p>10 € - Charge rapide iPhone / iPad</p>
+      <button onclick="addToCart('Adaptateur Apple USB-C 20W', 10)">Ajouter au panier</button>
     </div>
   </div>
 
-  <!-- Ajoute d'autres produits ici -->
+  <div class="product">
+    <img src="https://m.media-amazon.com/images/I/51Dhz-KqEQL._AC_SL1000_.jpg" alt="Câble USB-C vers USB-C">
+    <div class="product-details">
+      <h3>🔌 Câble USB-C vers USB-C (1m)</h3>
+      <p>6 € - Compatible Android, iPad Pro</p>
+      <button onclick="addToCart('Câble USB-C vers USB-C (1m)', 6)">Ajouter au panier</button>
+    </div>
+  </div>
 
-  <form>
-    <h2>📋 Commander maintenant</h2>
-    <input type="text" placeholder="Nom complet" required>
-    <input type="tel" placeholder="Numéro de téléphone" required>
-    <input type="text" placeholder="Adresse de livraison">
-    <select required>
-      <option disabled selected>Choisir un produit</option>
-      <option>Adaptateur Apple 20W</option>
-      <option>Câble USB-C vers USB-C</option>
-      <option>Câble USB-C vers Lightning</option>
-      <option>EarPods</option>
-      <option>Chargeur complet</option>
-    </select>
-    <select required>
-      <option disabled selected>Moyen de contact préféré</option>
-      <option>WhatsApp</option>
-      <option>Snapchat</option>
-      <option>Appel / SMS</option>
-    </select>
-    <textarea placeholder="Message ou demande spéciale..."></textarea>
-    <button type="submit">📩 Envoyer la commande</button>
-  </form>
+  <div class="product">
+    <img src="https://m.media-amazon.com/images/I/61e+7+REfZL._AC_SL1500_.jpg" alt="Câble USB-C vers Lightning">
+    <div class="product-details">
+      <h3>🔌 Câble USB-C vers Lightning (1m)</h3>
+      <p>6 € - Compatible iPhone 8 à 15</p>
+      <button onclick="addToCart('Câble USB-C vers Lightning (1m)', 6)">Ajouter au panier</button>
+    </div>
+  </div>
+
+  <div class="product">
+    <img src="https://m.media-amazon.com/images/I/61hDqaI-ezL._AC_SL1500_.jpg" alt="EarPods Lightning ou USB-C">
+    <div class="product-details">
+      <h3>🎧 EarPods Lightning / USB-C</h3>
+      <p>15 € - Écouteurs officiels Apple</p>
+      <button onclick="addToCart('EarPods Lightning / USB-C', 15)">Ajouter au panier</button>
+    </div>
+  </div>
+
+  <div class="product">
+    <img src="https://m.media-amazon.com/images/I/61m9Z1wI+zL._AC_SL1500_.jpg" alt="Pack chargeur complet">
+    <div class="product-details">
+      <h3>📦 Pack Chargeur Complet</h3>
+      <p>15 € - Adaptateur + Câble au choix</p>
+      <button onclick="addToCart('Pack Chargeur Complet', 15)">Ajouter au panier</button>
+    </div>
+  </div>
+
+  <div id="cart">
+    <h2>🛒 Mon Panier</h2>
+    <ul id="cart-items"></ul>
+    <p id="empty-cart">Aucun article ajouté pour l’instant.</p>
+    <p id="total-price"></p>
+  </div>
+
+  <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScwlbUDCZt53Jx8nMAu6MvBXwsrh5uxa_nr8yAfp0b8Ho7y9g/viewform?embedded=true" width="100%" height="1475" frameborder="0" marginheight="0" marginwidth="0">Chargement…</iframe>
 
   <div class="contact-links">
     <p>📱 Me contacter :</p>
@@ -129,5 +150,38 @@
     <a href="https://www.leboncoin.fr/recherche?text=iss_yns" target="_blank">Leboncoin : iss_yns</a>
   </div>
 </div>
+
+<script>
+  const cartItems = [];
+  let total = 0;
+
+  function addToCart(item, price) {
+    cartItems.push({ item, price });
+    updateCartDisplay();
+  }
+
+  function updateCartDisplay() {
+    const cartList = document.getElementById('cart-items');
+    const emptyMessage = document.getElementById('empty-cart');
+    const totalPrice = document.getElementById('total-price');
+    cartList.innerHTML = '';
+    total = 0;
+
+    if (cartItems.length === 0) {
+      emptyMessage.style.display = 'block';
+      totalPrice.textContent = '';
+    } else {
+      emptyMessage.style.display = 'none';
+      cartItems.forEach(entry => {
+        const li = document.createElement('li');
+        li.textContent = `${entry.item} - ${entry.price} €`;
+        cartList.appendChild(li);
+        total += entry.price;
+      });
+      totalPrice.textContent = `💰 Total : ${total} €`;
+    }
+  }
+</script>
+
 </body>
 </html>
