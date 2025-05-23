@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ism.vente - Accessoires</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #111;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+    .container {
+      padding: 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+    .product {
+      background: white;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    .product img {
+      width: 80px;
+      height: auto;
+      border-radius: 8px;
+    }
+    .product-details {
+      flex: 1;
+    }
+    .product h3 {
+      margin: 0 0 5px;
+    }
+    .product p {
+      margin: 5px 0;
+    }
+    form {
+      background: white;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      margin-top: 30px;
+    }
+    input, select, textarea, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background-color: #111;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    .contact-links {
+      margin-top: 30px;
+      text-align: center;
+    }
+    .contact-links a {
+      display: inline-block;
+      margin: 5px;
+      text-decoration: none;
+      color: #111;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>ism.vente</h1>
+  <p>Accessoires téléphone 📲 neufs – Livraison 93 ou envoi partout 📦</p>
+</header>
+
+<div class="container">
+  <!-- Liste des produits -->
+  <!-- ... (inchangé) ... -->
+
+  <form action="https://formsubmit.co/prankmomo93@gmail.com" method="POST">
+    <h2>📋 Commander maintenant</h2>
+    <input type="text" name="nom" placeholder="Nom complet" required>
+    <input type="tel" name="telephone" placeholder="Numéro de téléphone" required>
+    <input type="text" name="adresse" placeholder="Adresse de livraison">
+    <select name="produit" required>
+      <option disabled selected>Choisir un produit</option>
+      <option>Adaptateur Apple 20W</option>
+      <option>Câble USB-C vers USB-C</option>
+      <option>Câble USB-C vers Lightning</option>
+      <option>EarPods</option>
+      <option>Chargeur complet</option>
+    </select>
+    <select name="contact" required>
+      <option disabled selected>Moyen de contact préféré</option>
+      <option>WhatsApp</option>
+      <option>Snapchat</option>
+      <option>Appel / SMS</option>
+    </select>
+    <textarea name="message" placeholder="Message ou demande spéciale..."></textarea>
+    <input type="hidden" name="_captcha" value="false">
+    <button type="submit">📩 Envoyer la commande</button>
+  </form>
+
+  <div class="contact-links">
+    <p>📱 Me contacter :</p>
+    <a href="https://wa.me/33768683691" target="_blank">WhatsApp</a>
+    <a href="https://www.snapchat.com/add/ism.vente" target="_blank">Snap : ism.vente</a>
+    <a href="https://www.vinted.fr/member/135526601-issyns" target="_blank">Vinted : ism.vente</a>
+    <a href="https://www.leboncoin.fr/profil/c2de4042-6940-4075-b44e-7b60084b1250/offres" target="_blank">Leboncoin : iss_yns</a>
+  </div>
+</div>
+
+</body>
+</html>
