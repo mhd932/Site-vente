@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ism.vente - Accessoires</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #111;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+    .container {
+      padding: 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+    .product {
+      background: white;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    .product img {
+      width: 80px;
+      height: auto;
+      border-radius: 8px;
+    }
+    .product-details {
+      flex: 1;
+    }
+    .product h3 {
+      margin: 0 0 5px;
+    }
+    .product p {
+      margin: 5px 0;
+    }
+    form {
+      background: white;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      margin-top: 30px;
+    }
+    input, select, textarea, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background-color: #111;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    .contact-links {
+      margin-top: 30px;
+      text-align: center;
+    }
+    .contact-links a {
+      display: inline-block;
+      margin: 5px;
+      text-decoration: none;
+      color: #111;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+<header>
+  <h1>ism.vente</h1>
+  <p>Accessoires téléphone 📲 neufs – Livraison 93 ou envoi partout 📦</p>
+</header>
+<div class="container">
+  <!-- Tes produits ici... -->
+
+  <!-- Exemple d'un produit -->
+  <div class="product">
+    <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MU7V2?wid=572&hei=572&fmt=jpeg&qlt=95&.v=1664570086217" alt="Adaptateur Apple">
+    <div class="product-details">
+      <h3>⚡ Adaptateur Apple USB-C 20W</h3>
+      <p>10 € - Charge rapide iPhone / iPad</p>
+    </div>
+  </div>
+
+  <!-- Ajoute d'autres produits ici -->
+
+  <form>
+    <h2>📋 Commander maintenant</h2>
+    <input type="text" placeholder="Nom complet" required>
+    <input type="tel" placeholder="Numéro de téléphone" required>
+    <input type="text" placeholder="Adresse de livraison">
+    <select required>
+      <option disabled selected>Choisir un produit</option>
+      <option>Adaptateur Apple 20W</option>
+      <option>Câble USB-C vers USB-C</option>
+      <option>Câble USB-C vers Lightning</option>
+      <option>EarPods</option>
+      <option>Chargeur complet</option>
+    </select>
+    <select required>
+      <option disabled selected>Moyen de contact préféré</option>
+      <option>WhatsApp</option>
+      <option>Snapchat</option>
+      <option>Appel / SMS</option>
+    </select>
+    <textarea placeholder="Message ou demande spéciale..."></textarea>
+    <button type="submit">📩 Envoyer la commande</button>
+  </form>
+
+  <div class="contact-links">
+    <p>📱 Me contacter :</p>
+    <a href="https://wa.me/336XXXXXXXX" target="_blank">WhatsApp</a>
+    <a href="https://www.snapchat.com/add/ism.vente" target="_blank">Snap : ism.vente</a>
+    <a href="https://www.vinted.fr/member/ism.vente" target="_blank">Vinted : ism.vente</a>
+    <a href="https://www.leboncoin.fr/recherche?text=iss_yns" target="_blank">Leboncoin : iss_yns</a>
+  </div>
+</div>
+</body>
+</html>
